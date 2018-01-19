@@ -9,4 +9,4 @@ RUN \
   apt-get -q -y install python-subversion subversion && \
   sed -i 's/^\(user .*\)$/user root;/' /etc/nginx/nginx.conf
 
-CMD spawn-fcgi -s /var/run/fcgiwrap.sock /usr/sbin/fcgiwrap && nginx
+CMD nginx && spawn-fcgi -s /var/run/fcgiwrap.sock /usr/sbin/fcgiwrap -n
